@@ -12,12 +12,15 @@ import {
   Typography,
 } from '@mui/material';
 import { TurnedInNot } from '@mui/icons-material';
+import { useAppSelector } from '../../store';
 
 interface Props {
   drawerWidth: number;
 }
 
 export const Sidebar = ({ drawerWidth }: Props) => {
+  const { displayName } = useAppSelector((state) => state.auth);
+
   return (
     <Box
       component="nav"
@@ -33,7 +36,7 @@ export const Sidebar = ({ drawerWidth }: Props) => {
       >
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
-            Stelin
+            {displayName}
           </Typography>
         </Toolbar>
         <Divider />
