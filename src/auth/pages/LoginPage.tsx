@@ -27,12 +27,7 @@ export const LoginPage = () => {
   const dispatch = useAppDispatch();
   const { status, errorMessage } = useAppSelector((state) => state.auth);
 
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<formData>();
+  const { register, handleSubmit, formState } = useForm<formData>();
 
   const isAuthenticating = useMemo(() => status === 'checking', [status]);
 

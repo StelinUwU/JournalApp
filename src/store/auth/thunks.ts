@@ -6,6 +6,7 @@ import {
   signInWithGoogle,
 } from '../../firebase/providers';
 import { IUser } from '../../interfaces';
+import { clearNotesOnLogout } from '../journal';
 
 export const checkingAuthentication = () => {
   return async (dispatch: any) => {
@@ -66,6 +67,7 @@ export const startLogout = () => {
     try {
       await logoutFirebase();
       dispatch(logout(null));
+      dispatch(clearNotesOnLogout());
     } catch (error) {}
   };
 };
